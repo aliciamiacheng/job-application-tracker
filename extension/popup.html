@@ -1,0 +1,16 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+body{font:14px system-ui;width:330px;padding:14px} input{width:100%;box-sizing:border-box;margin:4px 0 9px;padding:7px}
+button{width:100%;padding:9px;margin-top:6px} .muted{color:#666;font-size:12px}.ok{color:#176b2c}
+</style></head><body>
+<h3>Job Application Tracker</h3>
+<div id="notjob" class="muted">This page was not recognized as a job application.</div>
+<div id="form" hidden>
+<label>Company<input id="company"></label>
+<label>Role<input id="role"></label>
+<label>Location<input id="location"></label>
+<button id="save">Save as Started</button>
+<div id="msg" class="ok"></div>
+</div>
+<hr><button id="export">Export saved jobs for GitHub</button>
+<div class="muted">Only pages you save are retained. Your general browsing history is not collected.</div>
+<script src="popup.js"></script></body></html>
