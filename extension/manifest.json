@@ -1,10 +1,11 @@
 {
-  "manifest_version": 3,
-  "name": "Alicia Job Application Tracker",
-  "version": "0.2.0",
-  "description": "Recognizes job application pages and saves started applications locally.",
-  "permissions": ["storage", "activeTab", "tabs"],
-  "host_permissions": ["<all_urls>"],
-  "action": {"default_popup": "popup.html"},
-  "content_scripts": [{"matches":["<all_urls>"],"js":["content.js"],"run_at":"document_idle"}]
+  "manifest_version":3,
+  "name":"Alicia Job Application Tracker",
+  "version":"0.3.0",
+  "description":"Recognizes job application pages and saves selected applications directly to your tracker.",
+  "permissions":["storage","activeTab","tabs"],
+  "host_permissions":["<all_urls>"],
+  "action":{"default_popup":"popup.html"},
+  "options_page":"options.html",
+  "content_scripts":[{"matches":["<all_urls>"],"js":["content.js"],"run_at":"document_idle"}]
 }
