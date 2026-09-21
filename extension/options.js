@@ -1,0 +1,1 @@
+const u=document.getElementById("url"),k=document.getElementById("key"),m=document.getElementById("msg");chrome.storage.local.get({syncUrl:"",syncKey:""},r=>{u.value=r.syncUrl;k.value=r.syncKey});document.getElementById("save").onclick=async()=>{await chrome.storage.local.set({syncUrl:u.value.trim().replace(/\/$/,""),syncKey:k.value.trim()});m.textContent="Saved."};
