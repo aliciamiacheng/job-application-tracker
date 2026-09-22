@@ -15,4 +15,4 @@ Last generated: 2026-09-22
 | APP-0007 | PineBridge Investments | Intern - Equities Fundamental |  | Markets & Finance | Applied | 2026-03-11 |  |
 | APP-0008 | PineBridge Investments | Intern - Fixed Income | Hong Kong | Markets & Finance | Applied | 2026-03-11 | [Open](https://pinebridge.wd5.myworkdayjobs.com/en-US/PineBridge_Career_Site/job/Intern---Fixed-Income_R-02064) |
 | APP-0006 | PineBridge Investments | Intern - Risk |  | Markets & Finance | Applied | 2026-03-11 |  |
-| APP-0001 | Procter & Gamble | Engineering Internship, Summer 2027 | BOSTON GO & TECH CENTER | Engineering & Technical | Applied | 2026-09-21 | [Open](https://www.pgcareers.com/uk/en/job/R000157841/Engineering-Internship-Summer-2027) |
+| APP-0001 | Procter & Gamble | Engineering Internship, Summer 2027 | BOSTON GO & TECH CENTER | Engineering & Technical | Rejected | 2026-09-21 | [Open](https://www.pgcareers.com/uk/en/job/R000157841/Engineering-Internship-Summer-2027) |
