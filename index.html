@@ -88,7 +88,8 @@ const categoryStyle = {
 const cardColors = {'Total':'#697386','Started':'#d6a51e','Applied':'#4b83cc','Assessment':'#9562c5','Interview':'#2b9a78','Final Round':'#15958d','Offer':'#38a35a'};
 let applications = [], submitting = false, loadVersion = 0;
 function category(x) {
-  if (categoryStyle[x.category]) return x.category;
+  if (x.category === 'Uncategorized') return 'Other';
+  if (x.category !== 'Other' && categoryStyle[x.category]) return x.category;
   const text = ((x.category || '') + ' ' + (x.role || '') + ' ' + (x.company || '')).toLowerCase();
   if (/consult|business analyst/.test(text)) return 'Consulting';
   if (/quant|trading|trader|systematic/.test(text)) return 'Quant & Trading';
@@ -150,7 +151,8 @@ function openEditor(id = '') {
   const form = byId('applicationForm');
   form.reset();
   for (const field of ['id','company','role','location','url','status','date_applied','deadline','notes']) form.elements.namedItem(field).value = record[field] || '';
-  form.elements.namedItem('category').value = id ? category(record) : '';
+  const group = id ? category(record) : '';
+  form.elements.namedItem('category').value = group === 'Other' ? 'Uncategorized' : group;
   byId('editorTitle').textContent = id ? 'Edit application' : 'Add application';
   byId('saveApplication').textContent = id ? 'Save changes' : 'Add application';
   byId('formError').textContent = '';
@@ -158,7 +160,7 @@ function openEditor(id = '') {
   form.elements.namedItem('company').focus();
 }
 function closeEditor() { if (!submitting) byId('editor').close(); }
-byId('categoryInput').innerHTML = '<option value="">Choose automatically</option>' + Object.keys(categoryStyle).map(c => '<option>' + esc(c) + '</option>').join('');
+byId('categoryInput').innerHTML = '<option value="">Choose automatically</option>' + Object.keys(categoryStyle).map(c => '<option value="' + esc(c === 'Other' ? 'Uncategorized' : c) + '">' + esc(c) + '</option>').join('');
 byId('statusInput').innerHTML = statuses.map(s => '<option>' + s + '</option>').join('');
 byId('addApplication').addEventListener('click', () => openEditor());
 byId('refresh').addEventListener('click', () => load());
