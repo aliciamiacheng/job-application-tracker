@@ -85,7 +85,8 @@ const categoryStyle = {
   'AI & Tech':['#5b68c8','#eef0ff'], 'Startups':['#c25f54','#fff0ed'],
   'Engineering & Technical':['#49765c','#edf6f0'], 'Other':['#737b88','#f1f3f5']
 };
-const cardColors = {'Total':'#697386','Started':'#d6a51e','Applied':'#4b83cc','Assessment':'#9562c5','Interview':'#2b9a78','Final Round':'#15958d','Offer':'#38a35a'};
+const statusColors = {'Applied':'#ffffff','Assessment':'#facc15','Interview':'#facc15','Final Round':'#facc15','Offer':'#38a35a'};
+const cardColors = {'Total':'#697386','Started':'#d6a51e', ...statusColors};
 let applications = [], submitting = false, loadVersion = 0;
 function category(x) {
   if (x.category === 'Uncategorized') return 'Other';
@@ -111,9 +112,10 @@ async function request(path, data) {
   return result;
 }
 function statusSelect(x) {
-  return '<select class="statusSelect" aria-label="Status for ' + esc(x.company + ' — ' + x.role) + '" data-id="' + esc(x.id) + '" data-old="' + esc(x.status) + '">' +
+  return '<select class="statusSelect" style="background-color:' + (statusColors[x.status] || '#ffffff') + '" aria-label="Status for ' + esc(x.company + ' — ' + x.role) + '" data-id="' + esc(x.id) + '" data-old="' + esc(x.status) + '">' +
     statuses.map(status => '<option' + (status === x.status ? ' selected' : '') + '>' + status + '</option>').join('') + '</select>';
 }
+function colorStatus(select) { select.style.backgroundColor = statusColors[select.value] || '#ffffff'; }
 function table(rows) {
   return '<table><thead><tr><th>Company</th><th>Role</th><th>Status</th><th>Location</th><th>Updated</th><th>Actions</th></tr></thead><tbody>' +
     rows.map(x => '<tr data-id="' + esc(x.id) + '"><td><strong>' + esc(x.company) + '</strong></td><td>' + esc(x.role) + '</td><td>' + statusSelect(x) +
@@ -153,6 +155,7 @@ function openEditor(id = '') {
   for (const field of ['id','company','role','location','url','status','date_applied','deadline','notes']) form.elements.namedItem(field).value = record[field] || '';
   const group = id ? category(record) : '';
   form.elements.namedItem('category').value = group === 'Other' ? 'Uncategorized' : group;
+  colorStatus(byId('statusInput'));
   byId('editorTitle').textContent = id ? 'Edit application' : 'Add application';
   byId('saveApplication').textContent = id ? 'Save changes' : 'Add application';
   byId('formError').textContent = '';
@@ -162,6 +165,7 @@ function openEditor(id = '') {
 function closeEditor() { if (!submitting) byId('editor').close(); }
 byId('categoryInput').innerHTML = '<option value="">Choose automatically</option>' + Object.keys(categoryStyle).map(c => '<option value="' + esc(c === 'Other' ? 'Uncategorized' : c) + '">' + esc(c) + '</option>').join('');
 byId('statusInput').innerHTML = statuses.map(s => '<option>' + s + '</option>').join('');
+byId('statusInput').addEventListener('change', event => colorStatus(event.currentTarget));
 byId('addApplication').addEventListener('click', () => openEditor());
 byId('refresh').addEventListener('click', () => load());
 byId('closeEditor').addEventListener('click', closeEditor);
@@ -187,10 +191,11 @@ byId('out').addEventListener('change', async event => {
   const select = event.target.closest('.statusSelect');
   if (!select) return;
   const old = select.dataset.old;
+  colorStatus(select);
   select.disabled = true;
   try { await request('/api/update-status', {id:select.dataset.id, status:select.value}); notice('Status updated.'); await load(); }
   catch (error) { select.value = old; notice(error.message, true); }
-  finally { select.disabled = false; }
+  finally { colorStatus(select); select.disabled = false; }
 });
 byId('out').addEventListener('click', async event => {
   const button = event.target.closest('button[data-action]');
