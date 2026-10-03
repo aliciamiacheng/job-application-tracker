@@ -1,6 +1,6 @@
 # Job Application Tracker
 
-A private, lightweight tracker for Alicia's Summer 2027 recruiting.
+A lightweight tracker for Alicia's Summer 2027 recruiting.
 
 ## What it tracks
 - Summer 2027 internships and Summer Analyst programs
@@ -11,6 +11,10 @@ A private, lightweight tracker for Alicia's Summer 2027 recruiting.
 Statuses: Interested, Started, Applied, Assessment, Interview, Final Round, Offer, Rejected, Withdrawn.
 
 ## Add an application
+On the website, click **+ Add application**. Company and role are required; the link is optional. Choose a status and category, and add dates, location, and notes. Click **Edit** on a row to change its details, use its status dropdown for a quick update, or **Delete** to remove it.
+
+Website edits save directly to `applications.csv` in GitHub and require no sync key. Anyone who can access the website can edit the tracker. Same-origin checks prevent cross-site browser writes but are not owner authentication. Keep the deployment behind access control if owner-only access is needed. The Chrome extension still uses `INGEST_SECRET`; `GITHUB_TOKEN` stays on the server.
+
 Edit `applications.csv` directly, or run:
 
 ```bash
@@ -36,3 +40,11 @@ This repository does **not** silently monitor your Google/Chrome browsing histor
 
 ## Data model
 See `applications.csv`. The unique ID prevents duplicate or ambiguous updates.
+
+## Deployment and verification
+`vercel.json` explicitly selects the Other framework so an existing Next.js preset cannot break this HTML/Node application. The build copies only the website into `public/`; the `api/` handlers run as Vercel functions. Configure `GITHUB_TOKEN` with repository contents write access. `INGEST_SECRET` is only needed for the extension.
+
+```bash
+npm test
+npm run build
+```

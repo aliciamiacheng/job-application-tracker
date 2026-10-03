@@ -1,5 +1,16 @@
-const REPO="aliciamiacheng/job-application-tracker",FILE="applications.csv",API="https://api.github.com";
-function csvCell(v){const s=String(v??"");return /[",\n\r]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s}
-function parseCSV(text){const rows=[];let row=[],cell="",q=false;for(let i=0;i<text.length;i++){const c=text[i],n=text[i+1];if(q&&c==='"'&&n==='"'){cell+='"';i++}else if(c==='"')q=!q;else if(c===","&&!q){row.push(cell);cell=""}else if((c==="\n"||c==="\r")&&!q){if(c==="\r"&&n==="\n")i++;row.push(cell);if(row.some(x=>x!==""))rows.push(row);row=[];cell=""}else cell+=c}if(cell||row.length){row.push(cell);rows.push(row)}if(!rows.length)return[];const h=rows[0];return rows.slice(1).map(r=>Object.fromEntries(h.map((k,i)=>[k,r[i]||""])));}
-export default async function handler(req,res){res.setHeader("Access-Control-Allow-Origin","*");res.setHeader("Access-Control-Allow-Headers","Content-Type, X-Tracker-Key");res.setHeader("Access-Control-Allow-Methods","POST, OPTIONS");if(req.method==="OPTIONS")return res.status(204).end();if(req.method!=="POST")return res.status(405).json({error:"POST only"});if(!process.env.INGEST_SECRET||req.headers["x-tracker-key"]!==process.env.INGEST_SECRET)return res.status(401).json({error:"Unauthorized"});if(!process.env.GITHUB_TOKEN)return res.status(500).json({error:"Server is missing GITHUB_TOKEN"});
-const id=String(req.body?.id||"").trim();if(!id)return res.status(400).json({error:"Application id required"});const headers={Authorization:"Bearer "+process.env.GITHUB_TOKEN,Accept:"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28"};const file=await fetch(`${API}/repos/${REPO}/contents/${FILE}`,{headers});if(!file.ok)return res.status(502).json({error:"Could not read tracker"});const meta=await file.json(),raw=Buffer.from(meta.content.replace(/\n/g,""),"base64").toString("utf8"),rows=parseCSV(raw),rec=rows.find(r=>r.id===id);if(!rec)return res.status(404).json({error:"Application not found"});const kept=rows.filter(r=>r.id!==id),fields=["id","company","role","location","category","url","status","date_discovered","date_started","date_applied","last_updated","source","deadline","notes"],out=fields.join(",")+"\n"+kept.map(r=>fields.map(f=>csvCell(r[f])).join(",")).join("\n")+"\n";const put=await fetch(`${API}/repos/${REPO}/contents/${FILE}`,{method:"PUT",headers:{...headers,"Content-Type":"application/json"},body:JSON.stringify({message:`Delete ${id} - ${rec.company} ${rec.role}`,content:Buffer.from(out).toString("base64"),sha:meta.sha})});if(!put.ok)return res.status(502).json({error:"GitHub update failed",detail:(await put.text()).slice(0,300)});return res.status(200).json({ok:true,id});}
+import { acceptWrite, mutateApplications, TrackerError, sendError } from '../lib/tracker.js';
+
+export default async function handler(req, res) {
+  if (!acceptWrite(req, res)) return;
+  try {
+    const id = String(req.body?.id || '').trim();
+    if (!id) throw new TrackerError(400, 'Application id is required.');
+    const result = await mutateApplications(rows => {
+      const index = rows.findIndex(row => row.id === id);
+      if (index < 0) throw new TrackerError(404, 'Application not found.');
+      rows.splice(index, 1);
+      return { ok: true, id };
+    }, 'Delete application ' + id);
+    return res.status(200).json(result);
+  } catch (error) { return sendError(res, error); }
+}
