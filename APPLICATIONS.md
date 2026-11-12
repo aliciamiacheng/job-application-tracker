@@ -1,6 +1,6 @@
 # Applications
 
-Last generated: 2026-11-11
+Last generated: 2026-11-12
 
 | ID | Company | Role | Location | Category | Status | Applied | Link |
 |---|---|---|---|---|---|---|---|
@@ -16,6 +16,7 @@ Last generated: 2026-11-11
 | APP-0029 | Databricks | Product Management Intern (Summer 2027) |  | Product | Applied | 2026-11-06 | [Open](https://www.databricks.com/company/careers/university-recruiting---product/product-management-intern-summer-2027-6883068002?gh_jid=6883068002&gh_src=Simplify) |
 | APP-0032 | GenuisAI | Engineering Intern (Summer 2027) |  | Engineering & Technical | Applied | 2026-11-06 | [Open](https://jobs.ashbyhq.com/geniusai/06198681-5c9d-40fa-aa68-ac92b65227c4/application) |
 | APP-0024 | Jane Street | Machine Learning Researcher Internship, May-August | Hong Kong |  | Applied | 2026-10-28 | [Open](https://www.janestreet.com/join-jane-street/apply/8596771002/) |
+| APP-0040 | Jane Street | Strategy and Product Internship, May-August | NYC | Quant & Trading | Applied | 2026-11-11 | [Open](https://www.linkedin.com/company/588173/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BKUYJDkadTpqeFGbbfnS%2BJA%3D%3D) |
 | APP-0023 | JP Morgan | 2027 Corporate Analyst Development Program - Summer Analyst - Hong Kong | Hong Kong | Markets & Finance | Applied | 2026-10-28 | [Open](https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/210753819/apply/section/4) |
 | APP-0021 | JP Morgan | 2027 Quantitative Research – Asset Management - Summer Analyst Internship | London |  | Applied | 2026-10-28 | [Open](https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/my-profile) |
 | APP-0022 | JPM | 2027 Markets Summer Analyst Program - Research | NYC | Markets & Finance | Applied | 2026-10-28 | [Open](https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs/preview/210690282/?keyword=internship&mode=location) |
