@@ -1,6 +1,6 @@
 # Applications
 
-Last generated: 2026-11-15
+Last generated: 2026-11-16
 
 | ID | Company | Role | Location | Category | Status | Applied | Link |
 |---|---|---|---|---|---|---|---|
@@ -13,6 +13,7 @@ Last generated: 2026-11-15
 | APP-0035 | Anduril | 2027 Business Operations Intern |  |  | Applied | 2026-11-06 | [Open](https://my.greenhouse.io/dashboard) |
 | APP-0010 | Citadel / Citadel Securities | Campus 26 - Asia Quantitative Research Analyst / Intern | Asia | Quant & Trading | Applied | 2026-02-20 |  |
 | APP-0013 | Coinbase | Associate Product Manager Intern | San Francisco, CA | Other | Applied | 2026-11-06 | [Open](https://job-boards.greenhouse.io/embed/job_app?token=8168322&for=coinbase) |
+| APP-0043 | Fanatics collectibles | Summer 2027 Internship - Product Management Intern |  |  | Applied | 2026-11-15 | [Open](https://job-boards.greenhouse.io/fanaticscollectibles/jobs/4507819009?gh_src=Simplify) |
 | APP-0032 | GenuisAI | Engineering Intern (Summer 2027) |  | Engineering & Technical | Applied | 2026-11-06 | [Open](https://jobs.ashbyhq.com/geniusai/06198681-5c9d-40fa-aa68-ac92b65227c4/application) |
 | APP-0041 | Google | Associate Product Manager BS/MS Intern, 2027 | London | Product | Applied | 2026-11-12 | [Open](https://www.google.com/about/careers/applications/jobs/results/103464941339452102-associate-product-manager-bsms-intern-2027?utm_source=chatgpt.com) |
 | APP-0024 | Jane Street | Machine Learning Researcher Internship, May-August | Hong Kong |  | Applied | 2026-10-28 | [Open](https://www.janestreet.com/join-jane-street/apply/8596771002/) |
@@ -21,6 +22,7 @@ Last generated: 2026-11-15
 | APP-0021 | JP Morgan | 2027 Quantitative Research – Asset Management - Summer Analyst Internship | London |  | Applied | 2026-10-28 | [Open](https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/my-profile) |
 | APP-0022 | JPM | 2027 Markets Summer Analyst Program - Research | NYC | Markets & Finance | Applied | 2026-10-28 | [Open](https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/jobs/preview/210690282/?keyword=internship&mode=location) |
 | APP-0026 | LionTree | 2028 US Advisory Summer Analyst - NY | NYC | Strategy & Operations | Applied | 2026-10-28 | [Open](https://job-boards.greenhouse.io/liontree/jobs/5250586007) |
+| APP-0044 | Lousia AI | Product Strategy – London & New York Internship | NYC | AI & Tech | Applied | 2026-11-15 | [Open](https://louisa.ai/career/product-strategy-internships-new-york-mumbai-bangalore/) |
 | APP-0033 | Mercor | Research Intern | SF | AI & Tech | Applied | 2026-11-06 | [Open](https://www.mercor.com/careers/e6502490-37c6-471a-9ffb-cf397764c518/) |
 | APP-0004 | Morgan Stanley | 2027 Finance Summer Analyst Program | Hong Kong | Markets & Finance | Applied | 2026-08-18 | [Open](https://morganstanley.tal.net/vx/lang-en-GB/mobile-0/brand-2/xf-65914e293040/candidate/so/pm/1/pl/1/opp/21331-2027-Finance-Summer-Analyst-Program-Hong-Kong/en-GB) |
 | APP-0030 | Nvidia | Enterprise Platform Technical Marketing Engineer Intern - Summer 2027 |  | Engineering & Technical | Applied | 2026-11-06 | [Open](https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/userHome) |
