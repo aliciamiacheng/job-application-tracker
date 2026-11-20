@@ -1,6 +1,6 @@
 # Applications
 
-Last generated: 2026-11-19
+Last generated: 2026-11-20
 
 | ID | Company | Role | Location | Category | Status | Applied | Link |
 |---|---|---|---|---|---|---|---|
@@ -9,6 +9,7 @@ Last generated: 2026-11-19
 | APP-0015 | Roblox | [Summer 2027] Product Management Intern | San Mateo | Other | Started |  | [Open](https://careers.roblox.com/jobs/8143981) |
 | APP-0014 | SWIRE (APPLY JAN) | Swire Summer internship programme | Hong Kong | Other | Started |  | [Open](https://careers.swire.com/en/careers/swire-summer-internship-programme) |
 | APP-0009 | Albourne | Private Markets Investment Due Diligence Intern |  | Investing / VC / Hedge Funds | Applied | 2026-03-11 |  |
+| APP-0045 | Amazon | Program Manager Intern – Summer 2027 (ID: 10575248) |  | Product | Applied | 2026-11-19 | [Open](https://account.amazon.jobs/en-US/applicant/jobs/10575248/apply) |
 | APP-0012 | American Express | 2027 Product Management, Global Commercial Services | NY | Other | Applied | 2026-11-06 | [Open](https://careers.americanexpress.com/de/sites/CX_1/job/26011916/apply/section/1) |
 | APP-0035 | Anduril | 2027 Business Operations Intern |  |  | Applied | 2026-11-06 | [Open](https://my.greenhouse.io/dashboard) |
 | APP-0010 | Citadel / Citadel Securities | Campus 26 - Asia Quantitative Research Analyst / Intern | Asia | Quant & Trading | Applied | 2026-02-20 |  |
